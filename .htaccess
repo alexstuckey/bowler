@@ -1,0 +1,6 @@
+Options +FollowSymLinks
+RewriteEngine on
+RewriteBase "/~alex/a/"
+RewriteCond $1 !^(index\.php|img|css|js|robots\.txt)
+RewriteRule ^(.*)$ index.php/$1 [L]
+
