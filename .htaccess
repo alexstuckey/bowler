@@ -1,6 +1,6 @@
 Options +FollowSymLinks
 RewriteEngine on
 RewriteBase "/~alex/bowler/"
-RewriteCond $1 !^(index\.php|img|css|js|robots\.txt)
+RewriteCond $1 !^(index\.php|img|css|js|robots\.txt|bower_components)
 RewriteRule ^(.*)$ index.php/$1 [L]
 
