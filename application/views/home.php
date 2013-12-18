@@ -15,4 +15,3 @@
         <p>A time is set by the administrator to send the bulletin out at each week. Just before it is sent out to the whole school, a final draft is sent to the Head of Culture. He can then make any alterations before the bulletin is sent out.</p>
 
       </div>
-    </div>
