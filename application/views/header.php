@@ -17,6 +17,10 @@
     <link href="<?php echo base_url(); ?>css/sticky-footer-navbar.css" rel="stylesheet">
     <link href="<?php echo base_url(); ?>bower_components/components-font-awesome/css/font-awesome.min.css" rel="stylesheet">
 
+    <link rel="stylesheet" href="<?php echo base_url(); ?>css/pickadate/classic.css" id="theme_base">
+    <link rel="stylesheet" href="<?php echo base_url(); ?>css/pickadate/classic.date.css" id="theme_date">
+    <link rel="stylesheet" href="<?php echo base_url(); ?>css/pickadate/classic.time.css" id="theme_time">
+
     <!-- Just for debugging purposes. Don't actually copy this line! -->
     <!--[if lt IE 9]><script src="../../docs-assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
 

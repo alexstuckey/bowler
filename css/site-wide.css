@@ -3,3 +3,9 @@
     text-align: right;
   }
 }
+
+/* Fix for pickadate */
+.form-control[readonly] {
+  background-color: white !important;
+  cursor: default !important;
+}

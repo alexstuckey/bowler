@@ -15,5 +15,12 @@
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="<?php echo base_url(); ?>bower_components/jquery/jquery.min.js"></script>
     <script src="<?php echo base_url(); ?>bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+
+    <script src="<?php echo base_url(); ?>js/pickadate/picker.js"></script>
+    <script src="<?php echo base_url(); ?>js/pickadate/picker.date.js"></script>
+    <script src="<?php echo base_url(); ?>js/pickadate/picker.time.js"></script>
+    <script src="<?php echo base_url(); ?>js/pickadate/legacy.js"></script>
+
+    <script src="<?php echo base_url(); ?>js/mine.js"></script>    
   </body>
 </html>
