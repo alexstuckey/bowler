@@ -12,8 +12,9 @@
     <link href="bower_components/bootstrap/dist/css/bootstrap.css" rel="stylesheet">
 
     <!-- Custom styles for this template -->
-    <link href="css/sticky-footer-navbar.css" rel="stylesheet">
+    <link href="css/site-wide.css" rel="stylesheet">
 
+    <link href="css/sticky-footer-navbar.css" rel="stylesheet">
     <link href="bower_components/components-font-awesome/css/font-awesome.min.css" rel="stylesheet">
 
     <!-- Just for debugging purposes. Don't actually copy this line! -->
