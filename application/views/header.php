@@ -9,13 +9,13 @@
     <title>Bowler</title>
 
     <!-- Bootstrap core CSS -->
-    <link href="bower_components/bootstrap/dist/css/bootstrap.css" rel="stylesheet">
+    <link href="<?php echo base_url(); ?>bower_components/bootstrap/dist/css/bootstrap.css" rel="stylesheet">
 
     <!-- Custom styles for this template -->
-    <link href="css/site-wide.css" rel="stylesheet">
+    <link href="<?php echo base_url(); ?>css/site-wide.css" rel="stylesheet">
 
-    <link href="css/sticky-footer-navbar.css" rel="stylesheet">
-    <link href="bower_components/components-font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <link href="<?php echo base_url(); ?>css/sticky-footer-navbar.css" rel="stylesheet">
+    <link href="<?php echo base_url(); ?>bower_components/components-font-awesome/css/font-awesome.min.css" rel="stylesheet">
 
     <!-- Just for debugging purposes. Don't actually copy this line! -->
     <!--[if lt IE 9]><script src="../../docs-assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
@@ -42,13 +42,13 @@
               <span class="icon-bar"></span>
               <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="#">Bowler</a>
+            <a class="navbar-brand" href="<?php echo base_url(); ?>home">Bowler</a>
           </div>
           <div class="collapse navbar-collapse">
             <ul class="nav navbar-nav">
-              <li class="active"><a href="home">Home</a></li>
-              <li><a href="schedule">Schedule</a></li>
-              <li><a href="items">Items</a></li>
+              <li class="active"><a href="<?php echo base_url(); ?>home">Home</a></li>
+              <li><a href="<?php echo base_url(); ?>schedule">Schedule</a></li>
+              <li><a href="<?php echo base_url(); ?>items">Items</a></li>
             </ul>
           </div><!--/.nav-collapse -->
         </div>
