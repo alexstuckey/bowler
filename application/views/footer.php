@@ -1,6 +1,10 @@
     <div id="footer">
       <div class="container">
-        <p class="text-muted">This project is in alpha</p>
+        <div class="row">
+          <div class="text-muted col-sm-3">This project is in alpha</div>
+          <div class="text-muted col-sm-4 col-sm-offset-5 disclaimer">By Alex Stuckey</div>
+        </div>
+        <div
       </div>
     </div>
 
