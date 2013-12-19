@@ -5,8 +5,45 @@ class Schedule extends CI_Controller {
   public function index() {
 
     $this->load->view('header');
-    $this->load->view('no_quarters');
+
+    // Fetch from database
+    $this->load->database();
+    $query = $this->db->get('quarters');
+
+    if (self::_checkForQuarters($query)) {
+      
+      $this->load->library('parser');
+
+      $parseData = array(
+        'quarters' => array()
+        );
+
+      foreach ($query->result() as $row) {
+        $newEntry = array(
+          'type' => $row->type,
+          'start_date' => $row->start_date,
+          'end_date' => $row->end_date 
+          );
+        array_push($parseData['quarters'], $newEntry);
+      }
+
+      $this->parser->parse('display_quarters', $parseData);
+
+    } else {
+      $this->load->view('no_quarters');
+    }
+
     $this->load->view('footer');
+  }
+
+  private function _checkForQuarters($query)  {
+    
+    if ($query->num_rows() == 0) {
+      return false;
+    } else {
+      return true;
+    }
+
   }
 
   public function create() {
