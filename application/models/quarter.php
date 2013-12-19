@@ -56,6 +56,28 @@ class Quarter extends CI_Model {
 
   }
 
+  function save(QuarterObject $obj) {
+
+    // Check to see if exists
+    $this->db->from('quarters')->where('id', $obj->id);
+    $query = $this->db->get();
+    if ($query->num_rows() == 0) {
+      // Doesn't exist => create
+      $this->db->insert('quarters', $obj);
+
+    } else {
+      // Exists => update record
+      $update = array(
+        'type'        => $obj->type,
+        'start_date'  => $obj->start_date,
+        'end_date'    => $obj->end_date
+        );
+      $this->db->from('quarters')->where('id', $obj->id);
+      $this->db->update('quarters', $update);
+    }
+
+  }
+
 }
 
 
