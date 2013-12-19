@@ -7,26 +7,12 @@ class Schedule extends CI_Controller {
     $this->load->view('header');
 
     // Fetch from database
-    $this->load->database();
-    $query = $this->db->get('quarters');
+    $this->load->model('Quarter');
+    $parseData['quarters'] = $this->Quarter->getAll();
 
-    if (self::_checkForQuarters($query)) {
-      
+    if (count($parseData['quarters']) > 0) {
+
       $this->load->library('parser');
-
-      $parseData = array(
-        'quarters' => array()
-        );
-
-      foreach ($query->result() as $row) {
-        $newEntry = array(
-          'type' => $row->type,
-          'start_date' => $row->start_date,
-          'end_date' => $row->end_date 
-          );
-        array_push($parseData['quarters'], $newEntry);
-      }
-
       $this->parser->parse('display_quarters', $parseData);
 
     } else {
@@ -34,15 +20,6 @@ class Schedule extends CI_Controller {
     }
 
     $this->load->view('footer');
-  }
-
-  private function _checkForQuarters($query)  {
-    
-    if ($query->num_rows() == 0) {
-      return false;
-    } else {
-      return true;
-    }
 
   }
 
