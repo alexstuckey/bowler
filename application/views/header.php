@@ -53,6 +53,7 @@
               <li class="active"><a href="<?php echo base_url(); ?>home">Home</a></li>
               <li><a href="<?php echo base_url(); ?>schedule">Schedule</a></li>
               <li><a href="<?php echo base_url(); ?>items">Items</a></li>
+              <li><a href="<?php echo base_url(); ?>schedule/create/quarter">Create Quarter</a></li>
             </ul>
           </div><!--/.nav-collapse -->
         </div>
