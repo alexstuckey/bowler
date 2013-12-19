@@ -1,4 +1,5 @@
 $('#inputQuarterStart,#inputQuarterEnd').pickadate({
     selectYears: true,
-    selectMonths: true
+    selectMonths: true,
+    formatSubmit: 'yyyy-mm-dd'
 })
