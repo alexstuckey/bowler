@@ -168,6 +168,27 @@ class QuarterObject {
     return $half_numberOfDays;
   }
 
+  function arrayOfWeeks() {
+
+    /**
+    * Returns an array of WeekObjects for the weeks in a quarter
+    * The index of each WeekObject in the array can be thought of as
+    * the week number in that quarter, offset by 1.
+    * (due to first index being 0)
+    */
+  }
+
+  function weekNumberInQuarter($week) {
+
+    /**
+    * Returns the week number (int) in the Quarter.
+    * This should match the number in the Pink Book.
+    * (e.g. Week 1, Week 2, Week 3, ...)
+    *
+    * In case that week is not in Quarter, returns 0.
+    */
+  }
+
 }
 
 /* End of file quarter.php */
