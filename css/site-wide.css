@@ -9,3 +9,16 @@
   background-color: white !important;
   cursor: default !important;
 }
+
+.quarterHeading {
+  color: #333333;
+  background-color: #f5f5f5;
+  border-bottom-style: none;
+  border-bottom-width: 0px;
+  border-color: rgb(221, 221, 221);
+}
+
+.quarterHeading .fa-caret-square-o-down {
+  color: #333333;
+  font-size: 20px;
+}
