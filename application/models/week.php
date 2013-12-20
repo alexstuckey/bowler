@@ -47,6 +47,22 @@ class WeekObject {
 
   }
 
+  function isInHalfTerm($quarter) {
+
+    $weeksInHalfTerm = array();
+
+    for ($i=0; $i < ($quarter->numberOfWeeksOfHalfTerm); $i++) {
+      $weeksInHalfTerm[] = $quarter->half_startWeek->weekNumber + $i;
+    }
+
+    if (in_array($this->weekNumber, $weeksInHalfTerm)) {
+      return TRUE;
+    } else {
+      return FALSE;
+    }
+
+  }
+
 }
 
 /* End of file week.php */
