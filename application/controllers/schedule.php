@@ -8,7 +8,25 @@ class Schedule extends CI_Controller {
 
     // Fetch from database
     $this->load->model('Quarter');
-    $parseData['quarters'] = $this->Quarter->getAll();
+    $quarters = $this->Quarter->getAll();
+    $parseData['quarters'] = array();
+
+    foreach ($quarters as $q) {
+
+      $newEntry = array(
+        'id' => $q->id,
+        'type' => $q->type,
+        'start_date' => $q->start_date,
+        'end_date' => $q->end_date,
+        'half_start' => $q->half_start,
+        'half_end' => $q->half_end,
+        'numberOfWeeks' => $q->numberOfWeeks,
+        'numberOfWeeksOfHalfTerm' => $q->numberOfWeeksOfHalfTerm
+        );
+
+      $parseData['quarters'][] = $newEntry;
+
+    }
 
     if (count($parseData['quarters']) > 0) {
 
@@ -65,6 +83,16 @@ class Schedule extends CI_Controller {
                      'field'   => 'inputQuarterEnd_submit', 
                      'label'   => 'Date End', 
                      'rules'   => 'required'
+                  ),
+               array(
+                     'field'   => 'inputHalfStart_submit', 
+                     'label'   => 'Half-term Date End', 
+                     'rules'   => 'required'
+                  ),
+               array(
+                     'field'   => 'inputHalfEnd_submit', 
+                     'label'   => 'Half-term Date End', 
+                     'rules'   => 'required'
                   )
             );
 
@@ -84,7 +112,9 @@ class Schedule extends CI_Controller {
         $data = array(
           'type' => $this->input->post('inputType'),
           'start_date' => $this->input->post('inputQuarterStart_submit'),
-          'end_date' => $this->input->post('inputQuarterEnd_submit')
+          'end_date' => $this->input->post('inputQuarterEnd_submit'),
+          'half_start' => $this->input->post('inputHalfStart_submit'),
+          'half_end' => $this->input->post('inputHalfEnd_submit')
           );
 
         $this->db->insert('quarters', $data);
