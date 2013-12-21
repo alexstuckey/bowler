@@ -176,6 +176,20 @@ class QuarterObject {
     * the week number in that quarter, offset by 1.
     * (due to first index being 0)
     */
+
+    $array = array();
+
+    for ($i=1; $i <= ($this->numberOfWeeks + $this->numberOfWeeksOfHalfTerm); $i++) {
+      // $i, week number, starts at 1
+
+      // Shift week number by $i
+      $newWeekNumber = (($this->startWeek->weekNumber)+$i-1);
+      $newWeek = new WeekObject($newWeekNumber, $this->startWeek->year);
+
+    }
+
+    return $array;
+
   }
 
   function weekNumberInQuarter($week) {
