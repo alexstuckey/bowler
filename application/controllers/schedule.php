@@ -13,6 +13,18 @@ class Schedule extends CI_Controller {
 
     foreach ($quarters as $q) {
 
+      $this->load->model('Week');
+      $weeks = array();
+
+      foreach ($q->arrayOfWeeks as $w) {
+
+        $weeks[] = array(
+          'number' => $q->weekNumberInQuarter($w),
+          'numberOfItems' => 0
+          );
+        
+      }
+
       $newEntry = array(
         'id' => $q->id,
         'type' => $q->type,
@@ -21,7 +33,8 @@ class Schedule extends CI_Controller {
         'half_start' => $q->half_start,
         'half_end' => $q->half_end,
         'numberOfWeeks' => $q->numberOfWeeks,
-        'numberOfWeeksOfHalfTerm' => $q->numberOfWeeksOfHalfTerm
+        'numberOfWeeksOfHalfTerm' => $q->numberOfWeeksOfHalfTerm,
+        'weeks' => $weeks
         );
 
       $parseData['quarters'][] = $newEntry;

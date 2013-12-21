@@ -22,10 +22,12 @@
               </div>
             </div>
             <ul class="list-group">
-              <li class="list-group-item"><span class="badge">1</span>Week 1</li>
+              {weeks}
+              <li class="list-group-item"><span class="badge">{numberOfItems}</span>Week {number}</li>
+              {/weeks}
             </ul>
           </div>
           {/quarters}
         </div>
-        
+
       </div>
