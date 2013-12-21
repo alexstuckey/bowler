@@ -102,6 +102,8 @@ class QuarterObject {
 
   public $numberOfWeeks;
   public $numberOfWeeksOfHalfTerm;
+
+  public $arrayOfWeeks;
   
   function __construct($i, $t, $s, $e, $hs, $he) {
     $this->id = $i;
@@ -123,6 +125,8 @@ class QuarterObject {
 
     $this->numberOfWeeks = $this->numberOfWeeks();
     $this->numberOfWeeksOfHalfTerm = $this->numberOfWeeksOfHalfTerm();
+
+    $this->arrayOfWeeks = $this->arrayOfWeeks();
   }
 
   function numberOfWeeks() {
@@ -206,6 +210,57 @@ class QuarterObject {
     *
     * In case that week is not in Quarter, returns 0.
     */
+
+    if (!$this->weekInQuarter($week)) {
+      return 0; // Not in Quarter
+    } else {
+
+      $i = 0;
+      foreach ($this->arrayOfWeeks as $weekIteration) {
+
+        $i++;
+
+        if (($weekIteration->weekNumber == $week->weekNumber)
+         && ($weekIteration->year == $week->year)) {
+          // Then index of week +1 is the Quarter Week Number
+          return $i;
+        }
+
+      }
+
+    }
+
+  }
+
+  function weekInQuarter($week) {
+
+    // Test whether week is within Quarter boundary
+    $ts_quarterStart = strtotime($this->start_date);
+    $ts_quarterEnd   = strtotime($this->end_date);
+    $ts_weekStart    = strtotime($week->start_date);
+    $ts_weekEnd      = strtotime($week->end_date);
+
+    if (($ts_weekStart >= $ts_quarterStart) && ($ts_weekStart <= $ts_quarterEnd)) {
+      $startIsIn = TRUE;
+    } else {
+      $startIsIn = false;
+    }
+
+    if (($ts_weekEnd >= $ts_quarterStart) && ($ts_weekEnd <= $ts_quarterEnd)) {
+      $endIsIn = TRUE;
+    } else {
+      $endIsIn = false;
+    }
+
+    if ($startIsIn == TRUE || $endIsIn == TRUE) {
+
+      return 1;
+
+    } else {
+      // Week is not in quarter
+      return 0;
+    }
+
   }
 
 }
