@@ -186,6 +186,11 @@ class QuarterObject {
       $newWeekNumber = (($this->startWeek->weekNumber)+$i-1);
       $newWeek = new WeekObject($newWeekNumber, $this->startWeek->year);
 
+      // Check whether the week is during half-term
+      if (!$newWeek->isInHalfTerm($this)) {
+        $array[] = $newWeek;
+      }
+
     }
 
     return $array;
