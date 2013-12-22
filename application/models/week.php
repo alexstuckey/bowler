@@ -10,7 +10,7 @@ class Week extends CI_Model {
 
 
 /**
-* Custom object model for a quarter
+* Custom object model for a week
 */
 class WeekObject {
 
