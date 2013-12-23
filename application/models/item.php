@@ -68,9 +68,32 @@ class Item extends CI_Model {
 
   function delete(ItemObject $item) {
 
+    $this->db->from('items')->where('id', $item->id);
+    $this->db->delete();
+
   }
 
   function save(ItemObject $item) {
+
+    // Check to see if exists
+    $this->db->from('items')->where('id', $item->id);
+    $query = $this->db->get();
+    if ($query->num_rows() == 0) {
+      // Doesn't exist => create
+      $this->db->insert('iems', $item);
+
+    } else {
+      // Exists => update record
+      $update = array(
+        'summary'    => $item->summary,
+        'body'       => $item->body,
+        'year'       => $item->year,
+        'weekID'     => $item->weekID,
+        'created_by' => $item->created_by
+        );
+      $this->db->from('items')->where('id', $item->id);
+      $this->db->update('items', $update);
+    }
 
   }
 
@@ -82,6 +105,19 @@ class Item extends CI_Model {
     *
     * Returns the relevant item objects
     */
+
+    $newItem = array(
+      'summary'    => $summary,
+      'body'       => $body,
+      'year'       => $year,
+      'weekID'     => $weekID,
+      'created_by' => $created_by
+      );
+
+    $this->db->insert('items', $newItem);
+
+    // Returns an ItemObject
+    return $this->getByID($this->db->insert_id());
 
   }
 
