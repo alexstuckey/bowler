@@ -39,6 +39,18 @@
               <input type="text" class="form-control" id="inputQuarterEnd" name="inputQuarterEnd">
             </div>
           </div>
+          <div class="form-group">
+            <label for="inputHalfStart" class="col-sm-2 control-label">Half-term Start Date</label>
+            <div class="col-sm-4">
+              <input type="text" class="form-control" id="inputHalfStart" name="inputHalfStart">
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="inputHalfEnd" class="col-sm-2 control-label">Half-term End Date</label>
+            <div class="col-sm-4">
+              <input type="text" class="form-control" id="inputHalfEnd" name="inputHalfEnd">
+            </div>
+          </div>
 
           <div class="form-group">
             <div class="col-sm-offset-2 col-sm-10">
