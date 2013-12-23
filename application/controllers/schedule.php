@@ -121,16 +121,15 @@ class Schedule extends CI_Controller {
       } else {
         // Continue with inserting to database
         $this->load->database();
+        $this->load->model('Quarter');
 
-        $data = array(
-          'type' => $this->input->post('inputType'),
-          'start_date' => $this->input->post('inputQuarterStart_submit'),
-          'end_date' => $this->input->post('inputQuarterEnd_submit'),
-          'half_start' => $this->input->post('inputHalfStart_submit'),
-          'half_end' => $this->input->post('inputHalfEnd_submit')
+        $insertedQuarter = $this->Quarter->create(
+          $this->input->post('inputType'),
+          $this->input->post('inputQuarterStart_submit'),
+          $this->input->post('inputQuarterEnd_submit'),
+          $this->input->post('inputHalfStart_submit'),
+          $this->input->post('inputHalfEnd_submit')
           );
-
-        $this->db->insert('quarters', $data);
 
         $this->session->set_flashdata('createdQuarter', TRUE);
         redirect('/schedule/');
