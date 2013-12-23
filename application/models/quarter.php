@@ -80,6 +80,27 @@ class Quarter extends CI_Model {
 
   }
 
+  function create($type, $start_date, $end_date, $half_start, $half_end) {
+    
+    /**
+    * Bundles the data into an array, not a QuarterObject.
+    * This is because QuarterObjects should only apply to DB entries.
+    */
+
+    $newQuarter = array(
+      'type'        => $type,
+      'start_date'  => $start_date,
+      'end_date'    => $end_date,
+      'half_start'  => $half_start,
+      'half_end'    => $half_end
+      );
+
+    $this->db->insert('quarters', $newQuarter);
+
+    // Returns a QuarterObject
+    return $this->getByID($this->db->insert_id());
+  }
+
 }
 
 
