@@ -23,6 +23,43 @@ class Item extends CI_Model {
 
   }
 
+  function getByWeek(WeekObject $week) {
+
+    /**
+    * Argument is a WeekObject
+    * Returns an array of ItemObject s
+    */
+
+  }
+
+  function getByUser(UserObject $user) {
+
+    /**
+    * Argument is a UserObject
+    * Returns an array of ItemObject s
+    */
+
+  }
+
+  function delete(ItemObject $item) {
+
+  }
+
+  function save(ItemObject $item) {
+
+  }
+
+  function create($summary, $body, $weekID, $year, $created_by) {
+
+    /**
+    * Bundles the data into an array, not an ItemObject.
+    * This is because ItemObjects should only apply to DB entries.
+    *
+    * Returns the relevant item objects
+    */
+
+  }
+
 }
 
 
