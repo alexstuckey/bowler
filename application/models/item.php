@@ -14,7 +14,7 @@ class Item extends CI_Model {
     */
 
     $this->load->database();
-    $this->db->from('quarters')->where('id', $id);
+    $this->db->from('items')->where('id', $id);
     $query = $this->db->get();
 
     $row = $query->result_array()[0];
@@ -30,6 +30,19 @@ class Item extends CI_Model {
     * Returns an array of ItemObject s
     */
 
+    $this->load->database();
+    $this->db->from('items')->where('week', $week->weekID);
+    $query = $this->db->get();
+
+    $itemsFound = array();
+
+    foreach ($query->result_array() as $row) {
+      $itemsFound[] = new ItemObject($row['id'], $row['summary'], $row['body'], $row['week'], $row['year'], $row['created_by']);
+    }
+
+    return $itemsFound;
+
+
   }
 
   function getByUser(UserObject $user) {
@@ -38,6 +51,18 @@ class Item extends CI_Model {
     * Argument is a UserObject
     * Returns an array of ItemObject s
     */
+
+    $this->load->database();
+    $this->db->from('items')->where('created_by', $user->id);
+    $query = $this->db->get();
+
+    $itemsFound = array();
+
+    foreach ($query->result_array() as $row) {
+      $itemsFound[] = new ItemObject($row['id'], $row['summary'], $row['body'], $row['week'], $row['year'], $row['created_by']);
+    }
+
+    return $itemsFound;
 
   }
 
