@@ -8,6 +8,7 @@ class Schedule extends CI_Controller {
 
     // Fetch from database
     $this->load->model('Quarter');
+    $this->load->model('Item');
     $quarters = $this->Quarter->getAll();
     $parseData['quarters'] = array();
 
@@ -20,7 +21,7 @@ class Schedule extends CI_Controller {
 
         $weeks[] = array(
           'number' => $q->weekNumberInQuarter($w),
-          'numberOfItems' => 0
+          'numberOfItems' => count($this->Item->getByWeek($w))
           );
         
       }
