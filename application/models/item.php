@@ -31,7 +31,7 @@ class Item extends CI_Model {
     */
 
     $this->load->database();
-    $this->db->from('items')->where('week', $week->weekID);
+    $this->db->from('items')->where('week', $week->weekNumber)->where('year', $week->year);
     $query = $this->db->get();
 
     $itemsFound = array();
