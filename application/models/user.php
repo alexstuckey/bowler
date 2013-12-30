@@ -77,7 +77,7 @@ class UserObject {
     
     $this->id         = $id;
     $this->username   = $username;
-    $this->email      = $email
+    $this->email      = $email;
     $this->firstName  = $firstName;
     $this->lastName   = $lastName;
     $this->publicName = $publicName;
