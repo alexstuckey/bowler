@@ -40,6 +40,23 @@ class User extends CI_Model {
   
   }
 
+  function getByEmail($fireflyID) {
+
+    /**
+    * Fetches a single user from the database
+    * Creates a new UserObject and fills it with the data
+    */
+
+    $this->load->database();
+    $this->db->from('users')->where('email', $email);
+    $query = $this->db->get();
+
+    $row = $query->result_array()[0];
+
+    return new UserObject($row['id'], $row['username'], $row['email'], $row['firstName'], $row['lastName'], $row['publicName'], $row['fireflyID']);
+  
+  }
+
 }
 
 
