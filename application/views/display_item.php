@@ -15,7 +15,7 @@
                 <h4 class="media-heading">{summary}</h4>
                 {body}
                 <br>
-                <small>{created_by}</small>
+                <small title="{user_email}">by {user_publicName}</small>
               </div>
             </li>
           </ul>

@@ -13,6 +13,7 @@ class Weeks extends CI_Controller {
 
     $this->load->model('Week');
     $this->load->model('Item');
+    $this->load->model('User');
 
     $year   = $this->uri->segment(2);
     $weekID = $this->uri->segment(3);
@@ -25,14 +26,18 @@ class Weeks extends CI_Controller {
       );
 
     foreach ($this->Item->getByWeek($week) as $i) {
+
+      // Fetch creating user
+      $user = $this->User->getByID($i->created_by);
   
       $parseData['items'][] = array(
-        'item-id'    => $i->id,
-        'summary'    => $i->summary,
-        'body'       => $i->body,
-        'year'       => $i->year,
-        'weekID'     => $i->weekID,
-        'created_by' => $i->created_by
+        'item-id'         => $i->id,
+        'summary'         => $i->summary,
+        'body'            => $i->body,
+        'year'            => $i->year,
+        'weekID'          => $i->weekID,
+        'user_publicName' => $user->publicName,
+        'user_email'      => $user->email
         );
 
     }

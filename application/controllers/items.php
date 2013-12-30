@@ -10,6 +10,7 @@ class Items extends CI_Controller {
     $this->load->model('Quarter');
     $this->load->model('Week');
     $this->load->model('Item');
+    $this->load->model('User');
     $quarters = $this->Quarter->getAll();
     $parseData['quarters'] = array();
 
@@ -21,14 +22,18 @@ class Items extends CI_Controller {
       foreach ($q->arrayOfWeeks as $w) {
 
         foreach ($this->Item->getByWeek($w) as $i) {
-          
+
+          // Fetch creating user
+          $user = $this->User->getByID($i->created_by);
+
           $items[] = array(
             'item-id'         => $i->id,
-            'summary'    => $i->summary,
-            'body'       => $i->body,
-            'year'       => $i->year,
-            'weekID'     => $i->weekID,
-            'created_by' => $i->created_by
+            'summary'         => $i->summary,
+            'body'            => $i->body,
+            'year'            => $i->year,
+            'weekID'          => $i->weekID,
+            'user_publicName' => $user->publicName,
+            'user_email'      => $user->email
             );
 
         }

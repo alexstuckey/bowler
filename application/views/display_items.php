@@ -21,7 +21,7 @@
                 <td>{item-id}</td>
                 <td>{weekID}</td>
                 <td>{summary}</td>
-                <td>{created_by}</td>
+                <td title="{user_email}">{user_publicName}</td>
               </tr>
               <tr>
                 <td colspan="4">{body}</td>
