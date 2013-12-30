@@ -21,6 +21,8 @@
     <script src="<?php echo base_url(); ?>js/pickadate/picker.time.js"></script>
     <script src="<?php echo base_url(); ?>js/pickadate/legacy.js"></script>
 
-    <script src="<?php echo base_url(); ?>js/mine.js"></script>    
+    <script src="<?php echo base_url(); ?>js/jquery-sortable.js"></script>
+    
+    <script src="<?php echo base_url(); ?>js/mine.js"></script>
   </body>
 </html>
